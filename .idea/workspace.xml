@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4eca1fe-5988-49c3-af5f-1d26f359a811" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eda_report_hyp1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eda_report_hyp1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/Age1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/Age2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/Height1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/Height2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/Sex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme2.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +99,9 @@
       <workItem from="1771919728980" duration="168000" />
       <workItem from="1771919923240" duration="34000" />
       <workItem from="1771919958309" duration="6181000" />
-      <workItem from="1771927748258" duration="5102000" />
+      <workItem from="1771927748258" duration="5278000" />
+      <workItem from="1771933238449" duration="810000" />
+      <workItem from="1771934072331" duration="1159000" />
     </task>
     <servers />
   </component>
