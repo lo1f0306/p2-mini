@@ -1,4 +1,4 @@
-_# 🏅 올림픽 개최국 효과(Home Advantage) 데이터 분석
+# 🏅 올림픽 개최국 효과(Home Advantage) 데이터 분석
 
 올림픽 개최라는 국가적 이벤트가 실제 메달 획득 성적에 미치는 영향을 데이터로 검증한 EDA 프로젝트입니다.
 
@@ -11,40 +11,24 @@ _# 🏅 올림픽 개최국 효과(Home Advantage) 데이터 분석
 * **사용 기술**: Python, Pandas, Matplotlib, Seaborn
 
 ---
-## 🛠️ 데이터 분석
-### 1. 데이터 행/열 수 확인: 
+## 2. 🛠️ 데이터 전처리
+### 1. 기존 데이터와 변경 후 행/열 수: 
   - 행: 271,116 개
   - 열: 15 개
 
-### 2. 각 변수의 이름, 타입, 결측치 확인:
-
-- **결측치 컬럼:** Age, Height, Weight, Medal
+### 2. 데이터 구조 변경 및 전처리 확인
 
 <div align="center">
 
-**[ 데이터 구조 ]**
-
-| No | Column | Non-Null Count |  Dtype  | Description |
-|:---:|:---|:---:|:-------:|:---|
-| 0 | **ID** | 271,116 |  int64  | 선수 고유 식별 번호 |
-| 1 | **Name** | 271,116 |   str   | 선수 이름  |
-| 2 | **Sex** | 271,116 |   str   | 성별 (M: 남성, F: 여성) |
-| 3 | **Age** | 261,642 | float64 | 선수 나이  |
-| 4 | **Height** | 210,945 | float64 | 선수 키  |
-| 5 | **Weight** | 208,241 | float64 | 선수 몸무게  |
-| 6 | **Team** | 271,116 |   str   | 소속 팀 이름 (국가명 또는 혼성팀) |
-| 7 | **NOC** | 271,116 |   str   | 국가 올림픽 위원회 코드 (3글자) |
-| 8 | **Games** | 271,116 |   str   | 올림픽 개최 연도 및 시즌 |
-| 9 | **Year** | 271,116 |  int64  | 개최 연도 |
-| 10 | **Season** | 271,116 |   str   | 개최 시즌 (Summer / Winter) |
-| 11 | **City** | 271,116 |   str   | 개최 도시 명칭 |
-| 12 | **Sport** | 271,116 |   str   | 경기 종목 |
-| 13 | **Event** | 271,116 |   str   | 세부 종목 명칭 |
-| 14 | **Medal** | 39,783 |   str   | 획득 메달 (Gold, Silver, Bronze) |
+| **[ 기존 데이터 구조 ]** | **[ 변경 후 데이터 구조 ]** |
+| :--- | :--- |
+| <table><tr><th>No</th><th>Column</th><th>Count</th><th>Dtype</th></tr><tr><td>0</td><td>**ID**</td><td>271,116</td><td>int64</td></tr><tr><td>1</td><td>Name</td><td>271,116</td><td>str</td></tr><tr><td>2</td><td>Sex</td><td>271,116</td><td>str</td></tr><tr><td>3</td><td>Age</td><td>261,642</td><td>float</td></tr><tr><td>4</td><td>Height</td><td>210,945</td><td>float</td></tr><tr><td>5</td><td>Weight</td><td>208,241</td><td>float</td></tr><tr><td>6</td><td>Team</td><td>271,116</td><td>str</td></tr><tr><td>7</td><td>NOC</td><td>271,116</td><td>str</td></tr><tr><td>8</td><td>Games</td><td>271,116</td><td>str</td></tr><tr><td>9</td><td>Year</td><td>271,116</td><td>int64</td></tr><tr><td>10</td><td>Season</td><td>271,116</td><td>str</td></tr><tr><td>11</td><td>City</td><td>271,116</td><td>str</td></tr><tr><td>12</td><td>Sport</td><td>271,116</td><td>str</td></tr><tr><td>13</td><td>Event</td><td>271,116</td><td>str</td></tr><tr><td>14</td><td>Medal</td><td>39,783</td><td>str</td></tr></table> | <table><tr><th>No</th><th>Column</th><th>Count</th><th>Dtype</th></tr><tr><td>0</td><td>**ID**</td><td>269,731</td><td>int64</td></tr><tr><td>1</td><td>Name</td><td>269,731</td><td>str</td></tr><tr><td>2</td><td>Sex</td><td>269,731</td><td>str</td></tr><tr><td>3</td><td>Age</td><td>260,416</td><td>float</td></tr><tr><td>4</td><td>Height</td><td>210,917</td><td>float</td></tr><tr><td>5</td><td>Weight</td><td>208,204</td><td>float</td></tr><tr><td>6</td><td>Team</td><td>269,731</td><td>str</td></tr><tr><td>7</td><td>NOC</td><td>269,731</td><td>str</td></tr><tr><td>8</td><td>Games</td><td>269,731</td><td>str</td></tr><tr><td>9</td><td>Year</td><td>269,731</td><td>int64</td></tr><tr><td>10</td><td>Season</td><td>269,731</td><td>str</td></tr><tr><td>11</td><td>City</td><td>269,731</td><td>str</td></tr><tr><td>12</td><td>Sport</td><td>269,731</td><td>str</td></tr><tr><td>13</td><td>Event</td><td>269,731</td><td>str</td></tr><tr><td>14</td><td>Medal</td><td>39,772</td><td>str</td></tr><tr><td>15</td><td>**host_NOC**</td><td>269,731</td><td>str</td></tr><tr><td>16</td><td>**is_host**</td><td>269,731</td><td>bool</td></tr></table> |
 
 </div>
 
-### 3. 기술 통계 및 데이터 요약
+
+
+### 3. 📌기술 통계 및 데이터 요약
 
 #### 3-1. 수치형 변수
 - **ID 및 Year 제외:** 분석적 의미가 낮은 고유 식별 번호와 연도 데이터는 통계 대상에서 제외하였습니다.
@@ -66,92 +50,18 @@ _# 🏅 올림픽 개최국 효과(Home Advantage) 데이터 분석
 ![Describe2.png](image/Describe2.png)
 
 ---
-변경예정---
-### 4. 각 컬럼 세부 정보:
-
-#### 4-1. Name
-- 한 선수가 여러 종목을 참가하거나, 여러 해 참가한 것을 추정해볼 수 있다
-
-
-
-**[ 주요 선수별 데이터 출현 빈도 ]**
-
-| Athlete Name | Appearances (Count) |
-|:---|:---:|
-| **Robert Tait McKenzie** | 58 |
-| **Heikki Ilmari Savolainen** | 39 |
-| **Joseph "Josy" Stoffel** | 38 |
-| Ioannis Theofilakis | 36 |
-| Takashi Ono | 33 |
-| ... | ... |
-| Milan Zyka | 1 |
-| Olga Igorevna Zyuzkova | 1 |
-
-
-
-#### 4-2. Sex
-- 전체 참가 데이터 중 남성 선수가 여성 선수보다 약 **2.6배** 더 많은 비중을 차지하고 있습니다. 
-
-<div align="center">
-  <img src="image/Sex.png" alt="Sex Distribution" width="350"/>
-</div>
-
-| 성별 (Sex) | 인원 수 (Count) | 비중 (Ratio) |
-|:---:|:---:|:---:|
-| **남성 (Male)** | 196,594 | 약 72.5% |
-| **여성 (Female)** | 74,522 | 약 27.5% |
-
-
-#### 4-3. Age
-- 히스토그램을 통해 20대 선수의 비중이 가장 높고, 데이터가 오른쪽으로 긴 꼬리를 가진 분포(Right-skewed)임을 확인할 수 있습니다.
-- **이상치 판단:** 바이올린 플롯(Violin Plot) 분석 결과, 데이터가 좌측으로 강하게 치우쳐 있어 40대 이상의 연령대는 이상치(Outlier)로 판단될 가능성이 높습니다.
-
-<div align="center">
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="image/Age1.png" alt="Age Histogram" width="45%"/>
-      <br>
-      <em>[ 선수 연령 분포 히스토그램 ]</em>
-    </td>
-    <td align="center">
-      <img src="image/Age2.png" alt="Age Violin Plot" width="45%"/>
-      <br>
-      <em>[ 선수 연령 바이올린 플롯 ]</em>
-    </td>
-  </tr>
-</table>
-
-</div>
-
-#### 4-4. Height
-- 170과 180 사이에 가장 많이 분포해있음을 알 수 있다.
-- 남성 참가자가 여성 참가자의 2.5배라 그런듯 하다.
-<div align="center">
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="image/Height1.png" alt="Age Histogram" width="45%"/>
-      <br>
-      <em>[ 선수 키 분포 히스토그램 ]</em>
-    </td>
-    <td align="center">
-      <img src="image/Height2.png" alt="Age Violin Plot" width="45%"/>
-      <br>
-      <em>[ 선수 키 바이올린 플롯 ]</em>
-    </td>
-  </tr>
-</table>
-
-</div>
-
-#### 4-5. Weight
-#### 4-6. Team
-#### 4-7. NOC
-#### 4-8. Games
-#### 4.9. Year
-#### 4.10. Season
-#### 4.11. City
-#### 4.12. Sport
+## 4. 🔍 주요 분석 질문 및 결과
+---
+## 5.💡 결론 및 시사점
+### 5-1. 개최국 여부에 따른 메달 획득 수 비교
+"안방에서는 메달 효율이 최소 2배 이상 증가한다"
+분석: 개최 경험이 있는 국가들을 대상으로 분석한 결과, 동일 국가가 '원정' 대비 '홈' 경기에서 거두는 평균 메달 수는 150~210% 가량 폭증하였다.
+인사이트: 이는 단순한 심리적 요인을 넘어, 개최국에게 부여되는 자동 출전권과 인프라 익숙도가 결합된 결과다. 특히 동계 올림픽은 하계보다 지형 적응력이 중요하여 버프의 강도가 더 선명하게 나타났다.
+### 5-2. 개최 전후 메달 성적 변화 추이
+올림픽 효과는 개최 전 8년부터 시작
+분석: 하계와 동계 시즌을 엄격히 분리하여 4년 주기 성적을 추적한 결과, 개최 8년 전(결정 시점)부터 투자가 시작되어 성적이 우상향하는 **'빌드업 구간'**이 확인되었다.
+인사이트: 개최 당해(Year 0)에 피크를 찍은 뒤 성적은 하락하지만, 개최 12년 후(+12)의 성적은 개최 12년 전(-12)보다 통계적으로 유의미하게 높았다. 이는 올림픽 유치가 국가 스포츠 시스템의 '체급' 자체를 높였음을 증명한다.
+### 5-3. 종목 유형에 따른 메달 획득 수 비교
+판정의 주관성보다, 자본이 투입된 기록 종목에서 버프가 더 정직하게 나타난다"
+분석: 종목을 **Objective(명확한 기록 존재), Subjective(심판의 주관적 점수로 채점), Others(복합적)**로 분류했을 때, 의외로 Objective 종목의 상승률이 가장 높게 나타났다.
+인사이트: 이는 개최국 버프가 단순히 '심판의 호의'에서 오는 노이즈가 아니라, 메달이 대량으로 걸린 기록 종목에 대한 국가적 자본 투여와 스포츠 과학의 집중(Optimization) 결과임을 시사한다.
